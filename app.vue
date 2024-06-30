@@ -156,9 +156,11 @@ onMounted(()=> {
               <!-- SLIDE 3: EDUCATIONS -->
                <li v-show="slide_number==3" aria-label="Educations" :class="`md:min-w-96 transition duration-3 ${fade_animation}`">
                 <label class="block text-amber-400 font-bold md:text-xl">Educations</label>
-                <h4 class="text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
-                <h2 class="text-sm font-semibold">Doctor of pharmacy</h2>
-                <h3 class="text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                <p class="mt-2">
+                  <h4 class="text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
+                  <h2 class="text-sm font-semibold">Doctor of pharmacy</h2>
+                  <h3 class="text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                </p>
                 <p class="mt-2">
                   <h4 class="text-xs text-right text-slate-400 float-end">October 2021 - 2023</h4>
                   <h2 class="text-sm font-semibold">Master of business administration</h2>

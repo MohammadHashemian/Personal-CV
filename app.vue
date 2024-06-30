@@ -185,7 +185,7 @@ onMounted(()=> {
                     <div class="flex justify-between items-center">
                     <h2 v-if='!(code_box.id == 2)' class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(2)">Local financial secretary</h2>
                     <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span>|</span> Local financial secretary</h2>
-                    <h4 class="text-xs text-right text-slate-400">2021 - 2022</h4>
+                    <h4 class="text-xs text-right text-slate-400">2021 2022</h4>
                   </div>
                     <h2 v-if="!(code_box.id == 3)" class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(3)">Local media design secretary</h2>
                     <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span>|</span> Local media design secretary</h2>

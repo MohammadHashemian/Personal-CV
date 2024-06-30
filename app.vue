@@ -169,13 +169,13 @@ onMounted(()=> {
                </li>
 
                <!-- SLIDE 4: EXPERIENCES -->
-                <li v-show="slide_number==4" class="space-y-2">
-                  <label class="block Nunito text-center text-amber-400 font-bold">Experiences</label>
+                <li v-show="slide_number==4" class="Nunito space-y-2">
+                  <label class="block text-center text-amber-400 font-bold">Experiences</label>
                   <!-- RAYAN PHARMED -->
                   <div> 
                     <div class="flex justify-between items-center">
                       <h2 v-if='!(code_box.id == 1)' class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none" v-on:click="ExperiencesLogic(1)">Product manager</h2>
-                      <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span class="font-mono">-></span> Product manager </h2>
+                      <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span>|</span> Product manager </h2>
                       <h4 class="text-xs text-right text-slate-400">2022</h4>
                     </div>
                     <h3 class="text-sm text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
@@ -184,11 +184,11 @@ onMounted(()=> {
                   <div>
                     <div class="flex justify-between items-center">
                     <h2 v-if='!(code_box.id == 2)' class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(2)">Local financial secretary</h2>
-                    <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local financial secretary</h2>
+                    <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span>|</span> Local financial secretary</h2>
                     <h4 class="text-xs text-right text-slate-400">2021 - 2022</h4>
                   </div>
                     <h2 v-if="!(code_box.id == 3)" class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(3)">Local media design secretary</h2>
-                    <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local media design secretary</h2>
+                    <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span>|</span> Local media design secretary</h2>
                     <h3 class="text-sm text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
                   </div>
                 </li>

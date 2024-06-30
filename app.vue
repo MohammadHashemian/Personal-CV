@@ -5,65 +5,97 @@ useSeoMeta({
   title: "Mohammad Hashemian",
   description: "My personal webpage as my online CV."
 })
-const intro_code = ref(
-`name: str = 'Mohammad Hashemian'
+
+const code = `name: str = 'Mohammad Hashemian'
 age: int = 24
 married: bool = True
 degrees: list[str] = ['Pharm.D', 'MBA Pharma']
 military_service_status: str = 'Passed'
 email: str = 'muhammadhashemian@gmail.com'
 programming_languages: list[str] = ['Python', 'SQL', 'Javascript', 'HTML', 'CSS']
-favorite_frameworks: list[str] = ['Pyspark', 'Fastapi', 'Nuxt']`)
-
+favorite_frameworks: list[str] = ['Pyspark', 'Fastapi', 'Nuxt']`
 const slide_number = ref(1)
-const slides_count = 2
+const slides_count = 4
 const fade_animation = ref("opacity-100")
 const type_animation = ref("Mohammad Hashemian")
 const highlighter = await getShikiHighlighter()
-const html = highlighter.highlight(intro_code.value, {
-  lang: 'python',
-  unwrap: true,
-})
+const html = {
+  id: 0,
+  html: highlighter.highlight(code, { lang: 'python', unwrap: true })
+}
+const code_box = ref(html)
 
 function SliderLogic(action) {
-  if (action == 1) {
-    fade_animation.value = "opacity-0 -translate-y-10"
-    setTimeout(()=> {
-      fade_animation.value = "opacity-100"
-      slide_number.value = 1
+  if (code_box.value.id !==0) {
+    code_box.value = html
+  }
+  switch(action) {
+    case "next":
+      fade_animation.value = "opacity-0 translate-x-10";
+      setTimeout(()=> {
+        fade_animation.value = "opacity-100 transition-x-0"
+        if ((slide_number.value + 1) <= slides_count) { 
+          slide_number.value += 1
+        } else {
+          slide_number.value = 1
+        }
+      }, 300)
+      break;
+    case "previous":
+      fade_animation.value = "opacity-0 -translate-x-10"
+      setTimeout(()=> {
+        fade_animation.value = "opacity-100 transition-x-0"
+        if ((slide_number.value - 1) !== 0) {
+          slide_number.value -= 1 
+        } else {
+          slide_number.value = slides_count 
+        }
+      }, 300)
+      break;
+    default:
+      fade_animation.value = "opacity-0 -translate-y-10"
+      setTimeout(()=> {
+        fade_animation.value = "opacity-100";
+        slide_number.value = action;
     }, 300)
-    return
+
   }
-  if (action == 2) {
-    fade_animation.value = "opacity-0 -translate-y-10"
-    setTimeout(()=> {
-      fade_animation.value = "opacity-100"
-      slide_number.value = 2
-    }, 300)
-    return
+}
+
+function ExperiencesLogic(id) {
+  switch(id) {
+    case 1:
+      code_box.value = { 
+        id:1, 
+        html: highlighter.highlight(`# Led a comprehensive market analysis to inform and rewrite the business plan.
+# Conducted thorough research on market trends, competitors and consumers behavior.
+# Synthesized finding into actionable insights, contributing to strategic decision-making.
+# Played a key role in refining and enhancing the business plan based on market dynamics.`,
+{lang:'python',
+unwrap:true
+})
+      }
+      break;
+    case 2:
+      code_box.value = {
+        id:2,
+        html: highlighter.highlight("# Developed and implemented innovative programming initiatives, fostering entrepreneurship and knowledge advancement among pharmacist students.", 
+        {
+          lang:'python',
+          unwrap:true,
+        })
+      }
+      break;
+    case 3:
+      code_box.value = {
+        id:3,
+        html: highlighter.highlight("# Executed visual design projects for local events, including creating engaging advertisements.",
+        { 
+          lang:'python',
+          unwrap:true
+        })
+      }
   }
-  if (action == "next") {
-    fade_animation.value = "opacity-0 translate-x-10"
-  }
-  if (action == "previous") {
-    fade_animation.value = "opacity-0 -translate-x-10"
-  }
-  setTimeout(()=> {
-    fade_animation.value = "opacity-100 transition-x-0"
-    if (action == "next") {
-    if ((slide_number.value + 1) <= slides_count) {
-      slide_number.value += 1
-    } else {
-      slide_number.value = 1
-    }
-  } else if (action == "previous") {
-    if ((slide_number.value - 1) !== 0) {
-      slide_number.value -= 1
-    } else {
-      slide_number.value = slides_count
-    }
-  }
-  }, 300)
 }
 
 onMounted(()=> {
@@ -107,8 +139,9 @@ onMounted(()=> {
               <li v-show="slide_number==2" id="slide-2" aria-label="about me" :class="`transition duration-3 ${fade_animation}`">
                 <!-- SLIDE 2: ABOUT ME-->
                 <p class="max-h-48 md:max-h-max overflow-auto md:overflow-visible">
-                  <a class="block text-xl font-bold text-amber-400">About me:</a>
-                  <span class="block text-sm">
+                  <label class="block text-xl font-bold text-amber-400">About me:</label>
+                  <h3>
+                    <span class="block text-sm">
                       I am a highly motivated and detail-oriented pharmacist with an MBA in Pharmaceutical Management,
                       poised to leverage my comprehensive educational background and hands-on experience in the pharmaceutical field.
                       With a solid foundation in pharmacology, coupled with advanced business acumen,
@@ -117,9 +150,46 @@ onMounted(()=> {
                       and implement innovative solutions.
                       I am seeking a challenging position where I can apply my expertise to drive improvements and
                       optimize outcomes in the pharmaceutical industry.   
-                  </span>
+                    </span>
+                  </h3>
                 </p>
               </li>
+              <!-- SLIDE 3: EDUCATIONS -->
+               <li v-show="slide_number==3" aria-label="Educations" :class="`md:min-w-96 transition duration-3 ${fade_animation}`">
+                <label class="block text-amber-400 font-bold text-xl">Educations</label>
+                <h4 class="font-thin text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
+                <h2>Doctor of pharmacy</h2>
+                <h3 class="font-thin text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                
+                <h4 class="font-thin text-xs text-right text-slate-400 md:float-end mt-1">October 2021 - 2023</h4>
+                <h2 class="md:mt-1">Master of business administration</h2>
+                <h3 class="font-thin text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+               </li>
+
+               <!-- SLIDE 4: EXPERIENCES -->
+                <li v-show="slide_number==4" class="min-w-64 space-y-2">
+                  <label class="block text-center text-amber-400 font-bold text-xl">Experiences</label>
+                  <!-- RAYAN PHARMED -->
+                  <div> 
+                    <div class="flex justify-between items-center">
+                      <h2 v-if='!(code_box.id == 1)' class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none" v-on:click="ExperiencesLogic(1)">Product manager</h2>
+                      <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span class="font-mono">-></span> Product manager </h2>
+                      <h4 class="font-thin text-xs text-right text-slate-400">2022</h4>
+                    </div>
+                    <h3 class="text-sm text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
+                  </div>
+                  <!-- IPHSA -->
+                  <div>
+                    <div class="flex justify-between items-center">
+                    <h2 v-if='!(code_box.id == 2)' class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(2)">Local financial secretary</h2>
+                    <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local financial secretary</h2>
+                    <h4 class="font-thin text-xs text-right text-slate-400">2021 - 2022</h4>
+                  </div>
+                    <h2 v-if="!(code_box.id == 3)" class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(3)">Local media design secretary</h2>
+                    <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local media design secretary</h2>
+                    <h3 class="text-sm text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
+                  </div>
+                </li>
             </ul>
             <a class="m-8 cursor-pointer hover:font-extrabold active:text-slate-600" v-on:click="SliderLogic('next')">
               <span class="font-mono">>></span>
@@ -137,6 +207,16 @@ onMounted(()=> {
               <span>2</span>
               <span>]</span>
             </li>
+            <li class="text-slate-200 font-mono text-sm space-x-2 hover:font-bold active:space-x-0" v-on:click="SliderLogic('3')">
+              <span>[</span>
+              <span>3</span>
+              <span>]</span>
+            </li>
+            <li class="text-slate-200 font-mono text-sm space-x-2 hover:font-bold active:space-x-0" v-on:click="SliderLogic('4')">
+              <span>[</span>
+              <span>4</span>
+              <span>]</span>
+            </li>
           </ul>
         </div>
        </section>
@@ -149,7 +229,7 @@ onMounted(()=> {
           </div>
           <!-- BODY -->
           <div class="code-box-body w-full overflow-y-auto border-slate-700 rounded-b-md p-2">
-            <pre class="text-sm" v-html="html"></pre>
+            <pre class="text-sm" v-html="code_box.html"></pre>
           </div>
         </section>
     </div>

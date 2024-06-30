@@ -121,27 +121,27 @@ onMounted(()=> {
         <div class="flex row-span-7 min-h-48 h-1/2 place-self-center place-items-center text-neutral-100">
           <!-- PREVIOUS BUTTON -->
             <a class="m-8 cursor-pointer" v-on:click="SliderLogic('previous')">
-              <span class="font-mono hover:font-extrabold active:text-slate-600"><<</span>
+              <span class="Nunito hover:font-extrabold active:text-slate-600"><<</span>
             </a>
             <!-- SLIDER CONTENTS -->
             <ul class="flex flex-col justify-center">
               <!-- SLIDE 1: INTRO -->
               <li v-show="slide_number==1" id="slide-1" aria-label="short introduction" :class="`space-y-4 transition duration-300 ${fade_animation}`">
-                <h2 class="text-2xl text-center">
+                <h2 class="text-2xl text-center Nunito">
                   I'm <strong class="text-amber-400"> {{ type_animation }} </strong>
                 </h2>
-                <h3 class="font-thin">
-                  <strong>Pharm.D</strong> and <strong>MBA</strong> graduated from Tehran university of medical sciences.
+                <h3 class="font-thin Nunito">
+                  <strong class="font-bold">Pharm.D</strong> and <strong class="font-bold">MBA</strong> graduated from Tehran university of medical sciences.
                 </h3>
-                <h4 class="text-right text-sm font-extralight">
+                <h4 class="text-right text-sm font-extralight Nunito">
                   Ahwaz, Iran
                 </h4>
               </li>
               <li v-show="slide_number==2" id="slide-2" aria-label="about me" :class="`transition duration-3 ${fade_animation}`">
                 <!-- SLIDE 2: ABOUT ME-->
                 <h3 class="max-h-48 md:max-h-max overflow-auto md:overflow-visible">
-                  <label class="block text-xl font-bold text-amber-400">About me:</label>
-                  <p class="text-sm">
+                  <label class="block text-xl font-bold text-amber-400 Nunito">About me:</label>
+                  <p class="text-sm Nunito">
                   I am a highly motivated and detail-oriented pharmacist with an MBA in Pharmaceutical Management,
                   poised to leverage my comprehensive educational background and hands-on experience in the pharmaceutical field.
                   With a solid foundation in pharmacology, coupled with advanced business acumen,
@@ -154,7 +154,7 @@ onMounted(()=> {
               </h3>
               </li>
               <!-- SLIDE 3: EDUCATIONS -->
-               <li v-show="slide_number==3" aria-label="Educations" :class="`md:min-w-96 transition duration-3 ${fade_animation}`">
+               <li v-show="slide_number==3" aria-label="Educations" :class="`Nunito md:min-w-96 transition duration-3 ${fade_animation}`">
                 <label class="block text-amber-400 font-bold md:text-xl">Educations</label>
                 <div class="mt-2">
                   <h4 class="text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
@@ -170,7 +170,7 @@ onMounted(()=> {
 
                <!-- SLIDE 4: EXPERIENCES -->
                 <li v-show="slide_number==4" class="min-w-64 space-y-2">
-                  <label class="block text-center text-amber-400 font-bold text-xl">Experiences</label>
+                  <label class="block text-center text-amber-400 font-bold text-xl Nunito">Experiences</label>
                   <!-- RAYAN PHARMED -->
                   <div> 
                     <div class="flex justify-between items-center">
@@ -194,11 +194,11 @@ onMounted(()=> {
                 </li>
             </ul>
             <a class="m-8 cursor-pointer hover:font-extrabold active:text-slate-600" v-on:click="SliderLogic('next')">
-              <span class="font-mono">>></span>
+              <span class="Nunito">>></span>
             </a>
         </div>
         <div class="row-span-1 mt-4">
-          <ul class="flex justify-center space-x-5 cursor-pointer">
+          <ul class="flex Nunito justify-center space-x-5 cursor-pointer">
             <li class="text-slate-200 font-mono text-sm space-x-2 hover:font-bold active:space-x-0" v-on:click="SliderLogic('1')">
               <span>[</span>
               <span>1</span>
@@ -264,5 +264,9 @@ onMounted(()=> {
     border-left-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
+  }
+
+  .Nunito {
+    font-family: Nunito;
   }
 </style>

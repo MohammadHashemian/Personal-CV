@@ -614,6 +614,14 @@ video {
   margin: 2rem;
 }
 
+.m-6 {
+  margin: 1.5rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -806,6 +814,14 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-stretch {
+  justify-content: stretch;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {

@@ -120,7 +120,7 @@ onMounted(()=> {
         <!-- ### TODO: Validate if min-h and h-1/2 is necessary -->
         <div class="flex row-span-7 min-h-48 h-1/2 place-self-center place-items-center text-neutral-100">
           <!-- PREVIOUS BUTTON -->
-            <a class="m-8 cursor-pointer" v-on:click="SliderLogic('previous')">
+            <a class="m-4 cursor-pointer" v-on:click="SliderLogic('previous')">
               <span class="Nunito hover:font-extrabold active:text-slate-600"><<</span>
             </a>
             <!-- SLIDER CONTENTS -->
@@ -169,14 +169,14 @@ onMounted(()=> {
                </li>
 
                <!-- SLIDE 4: EXPERIENCES -->
-                <li v-show="slide_number==4" class="min-w-64 space-y-2">
-                  <label class="block text-center text-amber-400 font-bold text-xl Nunito">Experiences</label>
+                <li v-show="slide_number==4" class="space-y-2">
+                  <label class="block Nunito text-center text-amber-400 font-bold">Experiences</label>
                   <!-- RAYAN PHARMED -->
                   <div> 
                     <div class="flex justify-between items-center">
                       <h2 v-if='!(code_box.id == 1)' class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none" v-on:click="ExperiencesLogic(1)">Product manager</h2>
                       <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span class="font-mono">-></span> Product manager </h2>
-                      <h4 class="font-thin text-xs text-right text-slate-400">2022</h4>
+                      <h4 class="text-xs text-right text-slate-400">2022</h4>
                     </div>
                     <h3 class="text-sm text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
                   </div>
@@ -185,7 +185,7 @@ onMounted(()=> {
                     <div class="flex justify-between items-center">
                     <h2 v-if='!(code_box.id == 2)' class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(2)">Local financial secretary</h2>
                     <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local financial secretary</h2>
-                    <h4 class="font-thin text-xs text-right text-slate-400">2021 - 2022</h4>
+                    <h4 class="text-xs text-right text-slate-400">2021 - 2022</h4>
                   </div>
                     <h2 v-if="!(code_box.id == 3)" class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none" v-on:click="ExperiencesLogic(3)">Local media design secretary</h2>
                     <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span class="font-mono">-></span> Local media design secretary</h2>
@@ -193,7 +193,7 @@ onMounted(()=> {
                   </div>
                 </li>
             </ul>
-            <a class="m-8 cursor-pointer hover:font-extrabold active:text-slate-600" v-on:click="SliderLogic('next')">
+            <a class="m-4 cursor-pointer hover:font-extrabold active:text-slate-600" v-on:click="SliderLogic('next')">
               <span class="Nunito">>></span>
             </a>
         </div>

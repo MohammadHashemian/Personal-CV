@@ -116,8 +116,9 @@ onMounted(()=> {
     <div class="grid grid-cols-12 h-full p-4 md:p-6 lg:p-12 mt-8">
       
       <!-- INTRO -->
-       <section class="gird grid-rows-6 col-span-12 md:col-span-8 place-self-center">
-        <div class="flex row-span-5 min-h-48 h-1/2 place-self-center place-items-center text-neutral-100">
+       <section class="gird grid-rows-8 col-span-12 md:col-span-8 place-self-center">
+        <!-- ### TODO: Validate if min-h and h-1/2 is necessary -->
+        <div class="flex row-span-7 min-h-48 h-1/2 place-self-center place-items-center text-neutral-100">
           <!-- PREVIOUS BUTTON -->
             <a class="m-8 cursor-pointer" v-on:click="SliderLogic('previous')">
               <span class="font-mono hover:font-extrabold active:text-slate-600"><<</span>
@@ -154,14 +155,15 @@ onMounted(()=> {
               </li>
               <!-- SLIDE 3: EDUCATIONS -->
                <li v-show="slide_number==3" aria-label="Educations" :class="`md:min-w-96 transition duration-3 ${fade_animation}`">
-                <label class="block text-amber-400 font-bold text-xl">Educations</label>
-                <h4 class="font-thin text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
-                <h2>Doctor of pharmacy</h2>
-                <h3 class="font-thin text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
-                
-                <h4 class="font-thin text-xs text-right text-slate-400 md:float-end mt-1">October 2021 - 2023</h4>
-                <h2 class="md:mt-1">Master of business administration</h2>
-                <h3 class="font-thin text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                <label class="block text-amber-400 font-bold md:text-xl">Educations</label>
+                <h4 class="text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
+                <h2 class="text-sm font-semibold">Doctor of pharmacy</h2>
+                <h3 class="text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                <p class="mt-2">
+                  <h4 class="text-xs text-right text-slate-400 float-end">October 2021 - 2023</h4>
+                  <h2 class="text-sm font-semibold">Master of business administration</h2>
+                  <h3 class="text-sm text-slate-300">Tehran university of medical sciences, Tehran, Iran</h3>
+                </p>
                </li>
 
                <!-- SLIDE 4: EXPERIENCES -->
@@ -193,7 +195,7 @@ onMounted(()=> {
               <span class="font-mono">>></span>
             </a>
         </div>
-        <div class="row-span-1 mt-8">
+        <div class="row-span-1 mt-4">
           <ul class="flex justify-center space-x-5 cursor-pointer">
             <li class="text-slate-200 font-mono text-sm space-x-2 hover:font-bold active:space-x-0" v-on:click="SliderLogic('1')">
               <span>[</span>

@@ -138,21 +138,19 @@ onMounted(()=> {
               </li>
               <li v-show="slide_number==2" id="slide-2" aria-label="about me" :class="`transition duration-3 ${fade_animation}`">
                 <!-- SLIDE 2: ABOUT ME-->
-                <p class="max-h-48 md:max-h-max overflow-auto md:overflow-visible">
+                <h3 class="max-h-48 md:max-h-max overflow-auto md:overflow-visible">
                   <label class="block text-xl font-bold text-amber-400">About me:</label>
-                  <h3>
-                    <span class="block text-sm">
-                      I am a highly motivated and detail-oriented pharmacist with an MBA in Pharmaceutical Management,
-                      poised to leverage my comprehensive educational background and hands-on experience in the pharmaceutical field.
-                      With a solid foundation in pharmacology, coupled with advanced business acumen,
-                      I am well-equipped to contribute effectively to any team.
-                      My familiarity with programming and problem-solving skills enable me to tackle complex challenges
-                      and implement innovative solutions.
-                      I am seeking a challenging position where I can apply my expertise to drive improvements and
-                      optimize outcomes in the pharmaceutical industry.   
-                    </span>
-                  </h3>
-                </p>
+                  <p class="text-sm">
+                  I am a highly motivated and detail-oriented pharmacist with an MBA in Pharmaceutical Management,
+                  poised to leverage my comprehensive educational background and hands-on experience in the pharmaceutical field.
+                  With a solid foundation in pharmacology, coupled with advanced business acumen,
+                  I am well-equipped to contribute effectively to any team.
+                  My familiarity with programming and problem-solving skills enable me to tackle complex challenges
+                  and implement innovative solutions.
+                  I am seeking a challenging position where I can apply my expertise to drive improvements and
+                  optimize outcomes in the pharmaceutical industry.   
+                  </p>
+              </h3>
               </li>
               <!-- SLIDE 3: EDUCATIONS -->
                <li v-show="slide_number==3" aria-label="Educations" :class="`md:min-w-96 transition duration-3 ${fade_animation}`">

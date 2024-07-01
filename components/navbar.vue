@@ -16,22 +16,23 @@
   margin-right: 1.2em;
   margin-left: 0.5em;
   border-radius: 100%;
-  background: rgba(255,255,255,0.7);
-  box-shadow: inset 0px 0px 10px 2px rgba(0,255,182,0.5),
-                    0px 0px 10px 2px rgba(0,255,135,0.3);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0px 0px 10px 2px rgba(0, 255, 182, 0.5),
+    0px 0px 10px 2px rgba(0, 255, 135, 0.3);
   animation: pulse 1s alternate infinite;
 }
 
 @keyframes pulse {
   0% {
-    background: rgba(255,255,255,0.3);
-    box-shadow: inset 0px 0px 10px 2px rgba(0,255,182,0.5),
-                      0px 0px 5px 2px rgba(0,255,135,0.3);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0px 0px 10px 2px rgba(0, 255, 182, 0.5),
+      0px 0px 5px 2px rgba(0, 255, 135, 0.3);
   }
+
   100% {
-    background: rgba(255,255,255,1);
-    box-shadow: inset 0px 0px 10px 2px rgba(0,255,182,0.5),
-                      0px 0px 15px 2px rgba(0,255,135,1);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 0px 10px 2px rgba(0, 255, 182, 0.5),
+      0px 0px 15px 2px rgba(0, 255, 135, 1);
   }
 
 }

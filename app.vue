@@ -24,6 +24,7 @@ const html = {
   html: highlighter.highlight(code, { lang: 'python', unwrap: true })
 }
 const code_box = ref(html)
+const play_click_animation = ref(true)
 
 function SliderLogic(action) {
   if (code_box.value.id !==0) {
@@ -63,6 +64,7 @@ function SliderLogic(action) {
 }
 
 function ExperiencesLogic(id) {
+  play_click_animation.value = false;
   switch(id) {
     case 1:
       code_box.value = { 
@@ -154,7 +156,7 @@ onMounted(()=> {
               </h3>
               </li>
               <!-- SLIDE 3: EDUCATIONS -->
-               <li v-show="slide_number==3" aria-label="Educations" :class="`Nunito md:min-w-96 transition duration-3 ${fade_animation}`">
+               <li v-show="slide_number==3" id="slide-3" aria-label="Educations" :class="`Nunito md:min-w-96 transition duration-3 ${fade_animation}`">
                 <label class="block text-amber-400 font-bold md:text-xl">Educations</label>
                 <div class="mt-2">
                   <h4 class="text-xs text-right text-slate-400 float-end">October 2018 - 2024</h4>
@@ -169,14 +171,20 @@ onMounted(()=> {
                </li>
 
                <!-- SLIDE 4: EXPERIENCES -->
-                <li v-show="slide_number==4" class="Nunito space-y-2">
+                <li v-show="slide_number==4" id="slide-4" :class="`Nunito space-y-2 transition duration-3 ${fade_animation}`">
                   <label class="block text-center text-amber-400 font-bold">Experiences</label>
                   <!-- RAYAN PHARMED -->
                   <div> 
-                    <div class="flex justify-between items-center">
+                    <div class="flex flex-wrap items-center">
                       <h2 v-if='!(code_box.id == 1)' class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none" v-on:click="ExperiencesLogic(1)">Product manager</h2>
                       <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span>|</span> Product manager </h2>
-                      <h4 class="text-xs text-right text-slate-400">2022</h4>
+                      <div
+                        v-if="play_click_animation"
+                        aria-label="click-icon"
+                        class="flex-grow click-animation">
+                        <icon class="text-slate-200"name="game-icons:click"></icon>
+                      </div>
+                      <h4 class="text-xs flex-grow text-right text-slate-400">2022</h4>
                     </div>
                     <h3 class="text-sm text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
                   </div>
@@ -266,7 +274,38 @@ onMounted(()=> {
     border-bottom-width: 1px;
   }
 
-  .Nunito {
-    font-family: Nunito;
+  .click-animation {
+    display: flex;
+    justify-content: start;
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+    animation: click 2s forwards;
+  }
+
+  @keyframes click {
+   50% {
+    margin-left: 0.2rem;
+    font-size: 1.25rem;
+   }
+   60% {
+    margin-left: 0.2rem;
+    font-size: 1.15rem;
+   }
+   70% {
+    margin-left: 0.2rem;
+    font-size: 1.25rem;
+   }
+   80% {
+    margin-left: 0.2rem;
+    font-size: 1.15rem;
+   }
+   90% {
+    margin-left: 0.2rem;
+    font-size: 1.25rem;
+   }
+   100% {
+    margin-left: 0.2rem;
+    display: none;
+   }
   }
 </style>

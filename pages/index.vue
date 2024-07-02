@@ -13,7 +13,7 @@ contact: list[str] = ['muhammadhashemian@gmail.com', '09134144427']
 programming_languages: list[str] = ['Python', 'SQL', 'CSS', 'Javascript', 'HTML']
 favorite_frameworks: list[str] = ['Pyspark', 'Fastapi','Nuxt']`
 const slide_number = ref(1)
-const slides_count = 4
+const slides_count = 5
 const fade_animation = ref("opacity-100")
 const type_animation = ref("Mohammad Hashemian")
 const highlighter = await getShikiHighlighter()
@@ -125,7 +125,7 @@ onMounted(() => {
 </script>
 <template>
   <!-- MAIN CONTAINER -->
-  <div class="grid grid-cols-12 h-full p-4 md:p-6 lg:p-12 mt-8">
+  <div class="grid grid-cols-12 h-auto p-4 md:p-6 lg:p-12 mt-8">
 
     <!-- INTRO -->
     <section class="gird grid-rows-8 col-span-12 md:col-span-8 place-self-center">
@@ -137,7 +137,7 @@ onMounted(() => {
             << </span>
         </a>
         <!-- SLIDER CONTENTS -->
-        <ul class="flex flex-col justify-center">
+        <ul class="flex flex-col w-full justify-around">
           <!-- SLIDE 1: INTRO -->
           <li v-show="slide_number == 1" id="slide-1" aria-label="short introduction"
             :class="`space-y-4 transition duration-300 ${fade_animation}`">
@@ -222,7 +222,8 @@ onMounted(() => {
               <h3 class="text-sm text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
             </div>
             <div class="w-full border-t-2 border-slate-600">
-              <h2 v-if="!(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer" @click="ExperiencesLogic(4, 'Entrepreneurial endeavors:')">
+              <h2 v-if="!(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer"
+                @click="ExperiencesLogic(4, 'Entrepreneurial endeavors:')">
                 Entrepreneurial endeavors</h2>
               <h2 v-if="(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer text-amber-200"><span>|</span>
                 Entrepreneurial endeavors</h2>
@@ -231,6 +232,18 @@ onMounted(() => {
                 <h3>Remona</h3>
                 <h4 class="text-xs place-content-center">2019 2021</h4>
               </div>
+            </div>
+          </li>
+
+          <!-- Slide 5: Awards -->
+          <li v-show="slide_number == 5">
+            <div>
+              <label class="text-amber-400 font-bold">Awards</label>
+              <h2>TOP 10 Winner - 66th IPSF World Congress Hackathon 2021</h2>
+              <h3 class="text-sm text-slate-400">Awarded for outstanding performance in developing a game for patient
+                with anorexia.<br>
+                Demonstrated excellence in both technical development and the creation of a viable business model.
+              </h3>
             </div>
           </li>
         </ul>
@@ -262,6 +275,12 @@ onMounted(() => {
             v-on:click="SliderLogic('4')">
             <span>[</span>
             <span>4</span>
+            <span>]</span>
+          </li>
+          <li class="text-slate-200 font-mono text-sm space-x-2 hover:font-bold active:space-x-0"
+            v-on:click="SliderLogic('5')">
+            <span>[</span>
+            <span>5</span>
             <span>]</span>
           </li>
         </ul>

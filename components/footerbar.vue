@@ -1,6 +1,5 @@
 <script setup>
 const showPhoneNumber = ref(false)
-const removePhoneNumber = ref(false)
 const myNumber = ref("")
 
 watch(showPhoneNumber, () => {

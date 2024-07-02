@@ -144,11 +144,11 @@ onMounted(() => {
             <h2 class="text-2xl text-center Nunito">
               I'm <strong class="text-amber-400"> {{ type_animation }} </strong>
             </h2>
-            <h3 class="font-thin Nunito">
-              <strong class="font-bold">Pharm.D</strong> and <strong class="font-bold">MBA</strong> graduated from
+            <h3 class="text-slate-200 Nunito">
+              <strong class="font-bold text-white">Pharm.D</strong> and <strong class="font-bold text-white">MBA</strong> graduated from
               Tehran university of medical sciences.
             </h3>
-            <h4 class="text-right text-sm font-extralight Nunito">
+            <h4 class="text-right text-xs Nunito text-slate-400">
               Ahwaz, Iran
             </h4>
           </li>
@@ -157,7 +157,7 @@ onMounted(() => {
             <!-- SLIDE 2: ABOUT ME-->
             <h3 class="max-h-48 md:max-h-max overflow-auto md:overflow-visible">
               <label class="block text-xl font-bold text-amber-400 Nunito">About me:</label>
-              <p class="text-sm Nunito">
+              <p class="text-sm Nunito text-slate-200">
                 I am a highly motivated and detail-oriented pharmacist with an MBA in Pharmaceutical Management,
                 poised to leverage my comprehensive educational background and hands-on experience in the pharmaceutical
                 field.
@@ -194,40 +194,40 @@ onMounted(() => {
             <div>
               <div class="flex flex-wrap items-center">
                 <h2 v-if='!(code_box.id == 1)'
-                  class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none"
+                  class="text-sm font-bold animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none"
                   v-on:click="ExperiencesLogic(1, 'Product manager:')">Product manager</h2>
-                <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span>|</span> Product manager </h2>
+                <h2 v-if='(code_box.id == 1)' class="text-sm font-bold text-amber-200 cursor-pointer"><span>|</span> Product manager </h2>
                 <div v-if="play_click_animation" aria-label="click-icon" class="flex-grow click-animation">
                   <icon class="text-slate-200" name="game-icons:click"></icon>
                 </div>
                 <h4 class="text-xs flex-grow text-right text-slate-400">2022</h4>
               </div>
-              <h3 class="text-sm text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
+              <h3 class="text-xs text-slate-300"> @ Rayan Pharmed, Tehran, Iran </h3>
             </div>
             <!-- IPHSA -->
             <div>
               <div class="flex justify-between items-center border-t-2 border-slate-600">
                 <h2 v-if='!(code_box.id == 2)'
-                  class="animate-pulse cursor-pointer mt-2 hover:text-amber-200 hover:animate-none"
+                  class="text-sm font-bold animate-pulse cursor-pointer mt-2 hover:text-amber-200 hover:animate-none"
                   v-on:click="ExperiencesLogic(2, 'Financial secretary:')">Local financial secretary</h2>
-                <h2 v-if='(code_box.id == 2)' class="cursor-pointer mt-2 text-amber-200"><span>|</span> Local financial
+                <h2 v-if='(code_box.id == 2)' class="text-sm font-bold cursor-pointer mt-2 text-amber-200"><span>|</span> Local financial
                   secretary</h2>
                 <h4 class="text-xs text-right text-slate-400">2021 2022</h4>
               </div>
               <h2 v-if="!(code_box.id == 3)"
-                class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none"
+                class="text-sm font-bold animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none"
                 @click="ExperiencesLogic(3, 'Media design secretary:')">Local media design secretary</h2>
-              <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span>|</span> Local media design
+              <h2 v-if="(code_box.id == 3)" class="text-sm font-bold cursor-pointer text-amber-200"><span>|</span> Local media design
                 secretary</h2>
-              <h3 class="text-sm text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
+              <h3 class="text-xs text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
             </div>
             <div class="w-full border-t-2 border-slate-600">
-              <h2 v-if="!(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer"
+              <h2 v-if="!(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer text-sm font-bold"
                 @click="ExperiencesLogic(4, 'Entrepreneurial endeavors:')">
                 Entrepreneurial endeavors</h2>
-              <h2 v-if="(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer text-amber-200"><span>|</span>
+              <h2 v-if="(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer text-amber-200 text-sm font-bold"><span>|</span>
                 Entrepreneurial endeavors</h2>
-              <div class="flex text-sm justify-between text-slate-400">
+              <div class="flex text-xs justify-between text-slate-400">
                 <h3>Medit</h3>
                 <h3>Remona</h3>
                 <h4 class="text-xs place-content-center">2019 2021</h4>
@@ -239,8 +239,8 @@ onMounted(() => {
           <li v-show="slide_number == 5">
             <div>
               <label class="text-amber-400 font-bold">Awards</label>
-              <h2>TOP 10 Winner - 66th IPSF World Congress Hackathon 2021</h2>
-              <h3 class="text-sm text-slate-400">Awarded for outstanding performance in developing a game for patient
+              <h2 class="text-sm">TOP 10 Winner - 66th IPSF World Congress Hackathon 2021</h2>
+              <h3 class="text-xs text-slate-400">Awarded for outstanding performance in developing a game for patient
                 with anorexia.<br>
                 Demonstrated excellence in both technical development and the creation of a viable business model.
               </h3>
@@ -294,7 +294,7 @@ onMounted(() => {
         <h3 class="ml-2 text-neutral-300 text-sm"> {{ aboutme }} </h3>
       </div>
       <!-- BODY -->
-      <div class="code-box-body w-full overflow-y-auto border-slate-700 rounded-b-md p-2">
+      <div class="code-box-body w-full overflow-y-auto border-slate-700 rounded-b-md p-2 shadow-lg">
         <pre class="text-sm" v-html="code_box.html"></pre>
       </div>
     </section>

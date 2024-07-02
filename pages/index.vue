@@ -23,10 +23,12 @@ const html = {
 }
 const code_box = ref(html)
 const play_click_animation = ref(true)
+const aboutme = ref('About me:')
 
 function SliderLogic(action) {
   if (code_box.value.id !== 0) {
     code_box.value = html
+    aboutme.value = 'About me:'
   }
   switch (action) {
     case "next":
@@ -61,8 +63,9 @@ function SliderLogic(action) {
   }
 }
 
-function ExperiencesLogic(id) {
+function ExperiencesLogic(id, title) {
   play_click_animation.value = false;
+  aboutme.value = title;
   switch (id) {
     case 1:
       code_box.value = {
@@ -96,6 +99,19 @@ function ExperiencesLogic(id) {
             unwrap: true
           })
       }
+      break;
+    case 4:
+      code_box.value = {
+        id: 4,
+        html: highlighter.highlight(`startups: dict[str, str] = {
+  "Medit": "Founded and led Medit, a startup to enhance user well-being, providing a platform for relaxation and stress management.",
+  "Remona": "Co-founded and managed Remona - Launched a WordPress website to offer personalized skincare."
+  }`, {
+          lang: 'python',
+          unwrap: true
+        })
+      }
+      break;
   }
 }
 
@@ -179,7 +195,7 @@ onMounted(() => {
               <div class="flex flex-wrap items-center">
                 <h2 v-if='!(code_box.id == 1)'
                   class="animate-pulse cursor-pointer hover:text-amber-200 active:text-amber-300 hover:animate-none"
-                  v-on:click="ExperiencesLogic(1)">Product manager</h2>
+                  v-on:click="ExperiencesLogic(1, 'Product manager:')">Product manager</h2>
                 <h2 v-if='(code_box.id == 1)' class="text-amber-200 cursor-pointer"><span>|</span> Product manager </h2>
                 <div v-if="play_click_animation" aria-label="click-icon" class="flex-grow click-animation">
                   <icon class="text-slate-200" name="game-icons:click"></icon>
@@ -190,20 +206,31 @@ onMounted(() => {
             </div>
             <!-- IPHSA -->
             <div>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center border-t-2 border-slate-600">
                 <h2 v-if='!(code_box.id == 2)'
-                  class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none"
-                  v-on:click="ExperiencesLogic(2)">Local financial secretary</h2>
-                <h2 v-if='(code_box.id == 2)' class="cursor-pointer text-amber-200"><span>|</span> Local financial
+                  class="animate-pulse cursor-pointer mt-2 hover:text-amber-200 hover:animate-none"
+                  v-on:click="ExperiencesLogic(2, 'Financial secretary:')">Local financial secretary</h2>
+                <h2 v-if='(code_box.id == 2)' class="cursor-pointer mt-2 text-amber-200"><span>|</span> Local financial
                   secretary</h2>
                 <h4 class="text-xs text-right text-slate-400">2021 2022</h4>
               </div>
               <h2 v-if="!(code_box.id == 3)"
                 class="animate-pulse cursor-pointer hover:text-amber-200 hover:animate-none"
-                v-on:click="ExperiencesLogic(3)">Local media design secretary</h2>
+                @click="ExperiencesLogic(3, 'Media design secretary:')">Local media design secretary</h2>
               <h2 v-if="(code_box.id == 3)" class="cursor-pointer text-amber-200"><span>|</span> Local media design
                 secretary</h2>
               <h3 class="text-sm text-slate-400">@ Iran Pharmaceutical Students Association, Ahwaz, Iran</h3>
+            </div>
+            <div class="w-full border-t-2 border-slate-600">
+              <h2 v-if="!(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer" @click="ExperiencesLogic(4, 'Entrepreneurial endeavors:')">
+                Entrepreneurial endeavors</h2>
+              <h2 v-if="(code_box.id == 4)" class="mt-1 animate-pulse cursor-pointer text-amber-200"><span>|</span>
+                Entrepreneurial endeavors</h2>
+              <div class="flex text-sm justify-between text-slate-400">
+                <h3>Medit</h3>
+                <h3>Remona</h3>
+                <h4 class="text-xs place-content-center">2019 2021</h4>
+              </div>
             </div>
           </li>
         </ul>
@@ -245,7 +272,7 @@ onMounted(() => {
     <section class="flex col-span-12 md:col-span-4 flex-col self-center p-6">
       <!-- HEADER -->
       <div class="code-box-header w-full border-slate-700 bg-slate-900 rounded-t-md p-2">
-        <h3 class="ml-2 text-neutral-300 text-sm"> about me: </h3>
+        <h3 class="ml-2 text-neutral-300 text-sm"> {{ aboutme }} </h3>
       </div>
       <!-- BODY -->
       <div class="code-box-body w-full overflow-y-auto border-slate-700 rounded-b-md p-2">

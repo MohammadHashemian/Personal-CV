@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   builder: 'vite',
   vite: {
     build: {
-      chunkSizeWarningLimit: 1000
+      chunkSizeWarningLimit: 1000,
     }
   },
   shiki: {

@@ -202,7 +202,7 @@ onMounted(() => {
             <label class="block text-center text-amber-400 font-bold"
               >Experiences</label
             >
-            <!-- RAYAN PHARMED -->
+            <!-- EXP: RAYAN PHARMED -->
             <div>
               <div class="flex flex-wrap items-center">
                 <h2
@@ -233,7 +233,7 @@ onMounted(() => {
                 @ Rayan Pharmed, Tehran, Iran
               </h3>
             </div>
-            <!-- IPHSA -->
+            <!-- EXP: IPHSA -->
             <div>
               <div
                 class="flex justify-between items-center border-t-2 border-slate-600"
@@ -295,7 +295,7 @@ onMounted(() => {
 
           <!-- Slide 5: Awards -->
           <li v-show="slideNumber == 5">
-            <div>
+            <div class="Nunito">
               <label class="text-amber-400 font-bold">Awards</label>
               <h2 class="text-sm">
                 TOP 10 Winner - 66th IPSF World Congress Hackathon 2021
